@@ -140,6 +140,7 @@ public class Preference implements Comparable<Preference> {
 
     private List<Preference> mDependents;
 
+    private boolean mWasDetached;
     private boolean mBaseMethodCalled;
 
     private final View.OnClickListener mClickListener = new View.OnClickListener() {
@@ -668,6 +669,9 @@ public class Preference implements Comparable<Preference> {
      * @see #setIcon(Drawable)
      */
     public Drawable getIcon() {
+        if (mIcon == null && mIconResId != 0) {
+            mIcon = ContextCompat.getDrawable(mContext, mIconResId);
+        }
         return mIcon;
     }
 
@@ -1138,6 +1142,24 @@ public class Preference implements Comparable<Preference> {
      */
     public void onDetached() {
         unregisterDependency();
+        mWasDetached = true;
+    }
+
+    /**
+     * Returns true if {@link #onDetached()} was called. Used for handling the case when a
+     * preference was removed, modified, and re-added to a {@link PreferenceGroup}
+     * @hide
+     */
+    public final boolean wasDetached() {
+        return mWasDetached;
+    }
+
+    /**
+     * Clears the {@link #wasDetached()} status
+     * @hide
+     */
+    public final void clearWasDetached() {
+        mWasDetached = false;
     }
 
     private void registerDependency() {
