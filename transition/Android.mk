@@ -36,7 +36,7 @@ LOCAL_SDK_VERSION := 14
 LOCAL_SRC_FILES := $(call all-java-files-under, base)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_JAVA_LIBRARIES := android-support-transition-res \
-    android-support-v4
+    android-support-compat
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # A helper sub-library that makes direct use of Ice Cream Sandwich APIs
@@ -47,7 +47,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, ics)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-transition-base
 LOCAL_JAVA_LIBRARIES := android-support-transition-res \
-    android-support-v4
+    android-support-compat
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # A helper sub-library that makes direct use of KitKat APIs
@@ -58,7 +58,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, kitkat)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-transition-ics
 LOCAL_JAVA_LIBRARIES := android-support-transition-res \
-    android-support-v4
+    android-support-compat
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # A helper sub-library that makes direct use of Lollipop APIs
@@ -69,7 +69,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, api21)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-transition-kitkat
 LOCAL_JAVA_LIBRARIES := android-support-transition-res \
-    android-support-v4
+    android-support-compat
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # A helper sub-library that makes direct use of Marshmallow APIs
@@ -80,7 +80,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, api23)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-transition-api21
 LOCAL_JAVA_LIBRARIES := android-support-transition-res \
-    android-support-v4
+    android-support-compat
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # Here is the final static library that apps can link against.
@@ -88,7 +88,7 @@ include $(BUILD_STATIC_JAVA_LIBRARY)
 #
 #   LOCAL_STATIC_ANDROID_LIBRARIES := \
 #       android-support-transition \
-#       android-support-v4
+#       android-support-compat
 #
 # in their makefiles to include the resources and their dependencies in their package.
 include $(CLEAR_VARS)
@@ -99,6 +99,6 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_JAVA_LANGUAGE_VERSION := 1.7
 LOCAL_STATIC_JAVA_LIBRARIES := android-support-transition-api23
 LOCAL_STATIC_ANDROID_LIBRARIES := android-support-transition-res
-LOCAL_SHARED_ANDROID_LIBRARIES := android-support-v4
+LOCAL_SHARED_ANDROID_LIBRARIES := android-support-compat
 LOCAL_JAR_EXCLUDE_FILES := none
 include $(BUILD_STATIC_JAVA_LIBRARY)
